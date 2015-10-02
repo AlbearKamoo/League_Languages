@@ -81,14 +81,14 @@ namespace LLC_Csharp
                 string[] lines = { "[General]", "LanguageLocaleRegion=" + listBox1.SelectedValue };
                 System.IO.File.WriteAllLines(@solutionsFilePath, lines);
                 System.IO.File.WriteAllText(@systemFilePath, "locale = " + listBox1.SelectedValue);
+
+                this.Close();
             }
             catch (DirectoryNotFoundException)
             {
                 // Handles the case in which the required folders could not be found, and relays this to the user.
                 MessageBox.Show("Incorrect root folder!\t\t", "Directory error", MessageBoxButtons.OK);
-            }
-
-            this.Close();
+            }  
         }
 
     }
